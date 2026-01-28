@@ -1,0 +1,81 @@
+// ============================================
+// FAST-Computing - Stili Custom
+// ============================================
+// Aggiungi qui le tue classi CSS personalizzate
+// e le modifiche agli stili di Bootstrap
+
+// --------------------------------------------
+// Componenti Custom
+// --------------------------------------------
+
+// Esempio: Header aziendale
+.brand-header {
+  background-color: $primary;
+  color: white;
+  padding: 2rem 0;
+  
+  h1 {
+    margin-bottom: 0;
+  }
+}
+
+// Esempio: Footer aziendale
+.brand-footer {
+  background-color: $dark;
+  color: $light;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+// Esempio: Card con stile aziendale
+.brand-card {
+  border: 2px solid $primary;
+  border-radius: $border-radius-lg;
+  transition: transform 0.2s ease-in-out;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// --------------------------------------------
+// Utility classes personalizzate
+// --------------------------------------------
+
+// Esempio: Spaziature custom
+.mt-6 {
+  margin-top: 4rem !important;
+}
+
+.mb-6 {
+  margin-bottom: 4rem !important;
+}
+
+// Esempio: Text colors brand
+.text-brand-primary {
+  color: $primary !important;
+}
+
+// --------------------------------------------
+// Modifiche a componenti Bootstrap
+// --------------------------------------------
+
+// Esempio: Navbar con stile aziendale
+.navbar-brand-custom {
+  .navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Esempio: Buttons personalizzati
+.btn-brand {
+  background-color: $primary;
+  border-color: $primary;
+  color: white;
+  
+  &:hover {
+    background-color: darken($primary, 10%);
+    border-color: darken($primary, 10%);
+  }
+}

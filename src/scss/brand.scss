@@ -1,0 +1,16 @@
+/*!
+ * FAST-Computing Brand CSS
+ * Basato su Bootstrap v5.3.3
+ */
+
+// 0. Importa i font (Google Fonts o custom)
+@import 'fonts';
+
+// 1. Importa le variabili custom prima di Bootstrap
+@import 'variables';
+
+// 2. Importa Bootstrap
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+// 3. Importa le personalizzazioni custom
+@import 'custom';

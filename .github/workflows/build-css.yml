@@ -1,0 +1,44 @@
+name: Build CSS
+
+on:
+  push:
+    branches: [ master, main, develop ]
+  pull_request:
+    branches: [ master, main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Build CSS
+      run: npm run build
+      
+    - name: Upload CSS artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: css-files
+        path: dist/css/
+        retention-days: 30
+        
+    - name: Commit and push CSS files
+      if: github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add dist/css/
+        git diff --staged --quiet || git commit -m "Auto-build: Update CSS files [skip ci]"
+        git push

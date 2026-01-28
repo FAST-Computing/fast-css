@@ -1,0 +1,30 @@
+{
+  "name": "@fast-computing/brand",
+  "version": "1.0.0",
+  "description": "CSS aziendali FAST-Computing basati su Bootstrap",
+  "main": "dist/css/brand.css",
+  "scripts": {
+    "build": "npm run build:css && npm run build:css:minified",
+    "build:css": "sass --no-source-map src/scss/brand.scss dist/css/brand.css",
+    "build:css:minified": "sass --no-source-map --style=compressed src/scss/brand.scss dist/css/brand.min.css",
+    "watch": "sass --watch src/scss/brand.scss dist/css/brand.css",
+    "clean": "rm -rf dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FAST-Computing/brand.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "sass",
+    "css",
+    "framework",
+    "branding"
+  ],
+  "author": "FAST-Computing",
+  "license": "MIT",
+  "devDependencies": {
+    "bootstrap": "^5.3.3",
+    "sass": "^1.70.0"
+  }
+}

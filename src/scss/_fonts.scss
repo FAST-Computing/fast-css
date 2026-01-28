@@ -1,0 +1,74 @@
+// ============================================
+// FAST-Computing - Font Configuration
+// ============================================
+
+// --------------------------------------------
+// OPZIONE 1: Google Fonts (Consigliato per iniziare)
+// --------------------------------------------
+// Importa i font da Google Fonts
+// Vai su https://fonts.google.com per scegliere i tuoi font
+
+// Esempio: Inter per testo normale e Roboto Mono per codice
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap');
+
+// Altri esempi popolari (decommenta quello che preferisci):
+// @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
+
+
+// --------------------------------------------
+// OPZIONE 2: Font Self-Hosted (Locale)
+// --------------------------------------------
+// Per usare font custom scaricati (es. font aziendali)
+// 1. Crea la cartella: src/fonts/
+// 2. Metti i tuoi file font (.woff2, .woff, .ttf) dentro
+// 3. Decommenta e personalizza il codice qui sotto:
+
+/*
+// Font Sans-Serif Custom
+@font-face {
+  font-family: 'BrandFont';
+  src: url('../fonts/BrandFont-Regular.woff2') format('woff2'),
+       url('../fonts/BrandFont-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BrandFont';
+  src: url('../fonts/BrandFont-Bold.woff2') format('woff2'),
+       url('../fonts/BrandFont-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Font Monospace Custom
+@font-face {
+  font-family: 'BrandMono';
+  src: url('../fonts/BrandMono-Regular.woff2') format('woff2'),
+       url('../fonts/BrandMono-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+*/
+
+
+// --------------------------------------------
+// OPZIONE 3: Adobe Fonts (Typekit)
+// --------------------------------------------
+// Se hai un account Adobe Fonts, usa il loro script
+// Aggiungi questo nel tuo HTML <head> invece che qui:
+// <link rel="stylesheet" href="https://use.typekit.net/xxxxxxx.css">
+
+
+// --------------------------------------------
+// OPZIONE 4: Font Locali del Sistema
+// --------------------------------------------
+// Usa solo font già installati sul sistema
+// Esempio in _variables.scss:
+// $font-family-sans-serif: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !default;
