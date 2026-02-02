@@ -178,3 +178,22 @@
     color: white;
   }
 }
+
+// Bottone bianco con testo blu (Fast brand)
+.btn-light-blue {
+  background-color: white;
+  border-color: $argos-secondary;
+  color: $argos-secondary;
+  font-weight: 500;
+  
+  &:hover {
+    background-color: #f0f8ff;
+    border-color: darken($argos-secondary, 10%);
+    color: darken($argos-secondary, 10%);
+  }
+  
+  &:active {
+    background-color: #e6f0ff;
+    color: darken($argos-secondary, 15%);
+  }
+}

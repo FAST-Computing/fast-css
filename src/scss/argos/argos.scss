@@ -7,11 +7,11 @@
 // 1. Importa font comuni
 @import '../_common/fonts';
 
-// 2. Importa variabili base comuni
-@import '../_common/variables-base';
-
-// 3. Importa variabili specifiche Argos
+// 2. Importa variabili specifiche Argos (PRIMA delle variabili base)
 @import 'variables';
+
+// 3. Importa variabili base comuni
+@import '../_common/variables-base';
 
 // 4. Importa Bootstrap completo
 @import '../../../node_modules/bootstrap/scss/bootstrap';
