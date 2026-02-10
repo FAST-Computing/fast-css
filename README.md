@@ -1,204 +1,52 @@
-# FAST-Computing Brand CSS# FAST-Computing Brand CSS
+# FAST graphics packages (`@fast/*`)
 
+Repo per il rilascio della parte grafica FAST-Computing in forma di pacchetti versionati.
 
+Supporta 3 temi:
 
-Sistema di gestione CSS aziendale modulare basato su Bootstrap 5, con supporto per 3 brand separati:CSS aziendali basati su Bootstrap 5, personalizzati con SASS per il brand FAST-Computing.
+- **corporate**
+- **argos**
+- **atlas**
 
-- **Corporate** - CSS aziendale generico
+## 📦 Packages
 
-- **Argos** - Portale web Argos## 📁 Struttura del progetto
+- `@fast/tokens` — source of truth (design tokens)
+- `@fast/mui-theme` — MUI `Theme` derivato dai tokens
+- `@fast/assets` — asset consumabili ovunque:
+   - CSS variables (`styles.css`)
+   - **3 CSS compilati separati** (corporate/argos/atlas + min)
+   - fonts (se presenti)
+- `@fast/ui` — componenti React/MUI
+- `@fast/layouts` — layout React/MUI
 
-- **Atlas** - Portale web Atlas
-
-```
-
-## 📁 Struttura del progettobrand/
-
-├── src/
-
-```│   └── scss/
-
-brand/│       ├── brand.scss          # File principale SASS
-
-├── src/│       ├── _variables.scss     # Variabili custom (colori, font, ecc.)
-
-│   ├── scss/│       └── _custom.scss        # Stili custom aggiuntivi
-
-│   │   ├── _common/                    # File condivisi tra tutti i brand├── dist/
-
-│   │   │   ├── _fonts.scss             # Font comuni (Google Fonts)│   └── css/
-
-│   │   │   ├── _variables-base.scss    # Variabili base comuni│       ├── brand.css           # CSS compilato
-
-│   │   │   └── _mixins.scss            # Mixin e funzioni comuni│       └── brand.min.css       # CSS compilato e minificato
-
-│   │   │├── .github/
-
-│   │   ├── corporate/                  # Brand Corporate (aziendale generico)│   └── workflows/
-
-│   │   │   ├── corporate.scss          # File principale Corporate│       └── build-css.yml       # GitHub Action per build automatico
-
-│   │   │   ├── _variables.scss         # Variabili Corporate└── package.json
-
-│   │   │   └── _custom.scss            # Stili custom Corporate```
-
-│   │   │
-
-│   │   ├── argos/                      # Brand Argos (portale)## 🚀 Installazione
-
-│   │   │   ├── argos.scss              # File principale Argos
-
-│   │   │   ├── _variables.scss         # Variabili Argos```bash
-
-│   │   │   └── _custom.scss            # Stili custom Argosnpm install
-
-│   │   │```
-
-│   │   └── atlas/                      # Brand Atlas (portale)
-
-│   │       ├── atlas.scss              # File principale Atlas## 🛠️ Comandi disponibili
-
-│   │       ├── _variables.scss         # Variabili Atlas
-
-│   │       └── _custom.scss            # Stili custom Atlas### Build CSS (produzione)
-
-│   │```bash
-
-│   └── fonts/                          # Font custom self-hosted (opzionali)npm run build
-
-│```
-
-├── dist/Compila i file SASS in CSS normale e minificato nella cartella `dist/css/`.
-
-│   └── css/
-
-│       ├── corporate.css               # CSS Corporate compilato### Watch mode (sviluppo)
-
-│       ├── corporate.min.css           # CSS Corporate minificato```bash
-
-│       ├── argos.css                   # CSS Argos compilatonpm run watch
-
-│       ├── argos.min.css               # CSS Argos minificato```
-
-│       ├── atlas.css                   # CSS Atlas compilatoMonitora le modifiche ai file SASS e ricompila automaticamente.
-
-│       └── atlas.min.css               # CSS Atlas minificato
-
-│### Pulizia
-
-└── examples/                           # Esempi HTML per ogni brand```bash
-
-```npm run clean
-
-```
-
-## 🚀 InstallazioneRimuove la cartella `dist/`.
-
-
-
-```bash## 🎨 Personalizzazione
-
-npm install
-
-```### Modificare i colori del brand
-
-Modifica il file `src/scss/_variables.scss`:
-
-## 🛠️ Comandi disponibili
-
-```scss
-
-### Build tutti i brand$primary:   #0066cc;  // Colore principale
-
-```bash$secondary: #6c757d;  // Colore secondario
-
-npm run build// ... altri colori
-
-# oppure```
-
-npm run build:all
-
-```### Aggiungere font custom
-
-
-
-### Build singoli brand#### Opzione 1: Google Fonts (consigliato)
-
-```bash1. Apri `src/scss/_fonts.scss`
-
-npm run build:corporate    # Solo Corporate2. Modifica l'URL di import con i tuoi font da [Google Fonts](https://fonts.google.com)
-
-npm run build:argos        # Solo Argos3. Aggiorna `src/scss/_variables.scss` con il nome del font
-
-npm run build:atlas        # Solo Atlas
-
-``````scss
-
-// In _fonts.scss
-
-### Watch mode (sviluppo)@import url('https://fonts.googleapis.com/css2?family=TuoFont:wght@400;700&display=swap');
+## ✅ Build
 
 ```bash
-
-npm run watch:corporate    # Monitora Corporate// In _variables.scss
-
-npm run watch:argos        # Monitora Argos$font-family-sans-serif: 'TuoFont', sans-serif !default;
-
-npm run watch:atlas        # Monitora Atlas```
-
+npm install
+npm run build
 ```
 
-#### Opzione 2: Font Self-Hosted (aziendali)
+## 📦 Usare i CSS (non-Next / non-React)
 
-### Pulizia1. Metti i file font (.woff2, .woff) in `src/fonts/`
+Dopo la publish su registry, puoi consumare i file direttamente dal pacchetto `@fast/assets`:
 
-```bash2. Decommenta e personalizza le regole `@font-face` in `src/scss/_fonts.scss`
+- `@fast/assets/styles.css`
+- `@fast/assets/css/corporate.css`
+- `@fast/assets/css/argos.css`
+- `@fast/assets/css/atlas.css`
 
-npm run clean              # Rimuove tutti i CSS compilati3. Aggiorna `$font-family-sans-serif` in `_variables.scss`
+Sono disponibili anche le versioni `.min.css`.
 
-```
-
-Consulta `src/fonts/README.md` per istruzioni dettagliate.
-
-## 🎨 Personalizzazione
-
-### Aggiungere stili custom
-
-### Struttura dei brandAggiungi i tuoi stili in `src/scss/_custom.scss`:
-
-
-
-Ogni brand ha 3 file principali:```scss
-
-.mia-classe-custom {
-
-1. **`{brand}.scss`** - File principale che importa tutto nell'ordine corretto  background-color: $primary;
-
-2. **`_variables.scss`** - Variabili specifiche del brand (colori, font, ecc.)  padding: 1rem;
-
-3. **`_custom.scss`** - Stili CSS custom del brand}
+## 🗂️ Struttura repo
 
 ```
-
-### Modificare i colori di un brand
-
-### Modificare variabili Bootstrap
-
-Esempio per modificare Argos:Tutte le variabili Bootstrap possono essere sovrascritte in `_variables.scss`. 
-
-Consulta la [documentazione Bootstrap](https://getbootstrap.com/docs/5.3/customize/sass/) per l'elenco completo.
-
-```scss
-
-// src/scss/argos/_variables.scss## 🤖 GitHub Actions
-
-$primary:       #2c3e50;  // Blu scuro
-
-$secondary:     #95a5a6;  // GrigioIl repository include una GitHub Action che:
-
-$argos-accent:  #3498db;  // Blu accento- Compila automaticamente i CSS ad ogni push sul branch `master`/`main`
-
-```- Genera artifacts scaricabili per ogni build
+packages/
+   assets/
+   tokens/
+   mui-theme/
+   ui/
+   layouts/
+```
 
 - Committa automaticamente i CSS compilati nel repository
 

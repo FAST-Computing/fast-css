@@ -1,40 +1,38 @@
 {
-  "name": "@fast-computing/brand",
-  "version": "1.0.0",
-  "description": "CSS aziendali FAST-Computing basati su Bootstrap",
-  "main": "dist/css/brand.css",
+  "name": "fast-monorepo",
+  "version": "2.0.0",
+  "private": true,
+  "description": "FAST-Computing graphics release repo (@fast/* packages)",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "build": "npm run build:all",
-    "build:all": "npm run build:corporate && npm run build:argos && npm run build:atlas",
-    "build:corporate": "npm run build:corporate:expanded && npm run build:corporate:minified",
-    "build:corporate:expanded": "sass --no-source-map src/scss/corporate/corporate.scss dist/css/corporate.css",
-    "build:corporate:minified": "sass --no-source-map --style=compressed src/scss/corporate/corporate.scss dist/css/corporate.min.css",
-    "build:argos": "npm run build:argos:expanded && npm run build:argos:minified",
-    "build:argos:expanded": "sass --no-source-map src/scss/argos/argos.scss dist/css/argos.css",
-    "build:argos:minified": "sass --no-source-map --style=compressed src/scss/argos/argos.scss dist/css/argos.min.css",
-    "build:atlas": "npm run build:atlas:expanded && npm run build:atlas:minified",
-    "build:atlas:expanded": "sass --no-source-map src/scss/atlas/atlas.scss dist/css/atlas.css",
-    "build:atlas:minified": "sass --no-source-map --style=compressed src/scss/atlas/atlas.scss dist/css/atlas.min.css",
-    "watch:corporate": "sass --watch src/scss/corporate/corporate.scss dist/css/corporate.css",
-    "watch:argos": "sass --watch src/scss/argos/argos.scss dist/css/argos.css",
-    "watch:atlas": "sass --watch src/scss/atlas/atlas.scss dist/css/atlas.css",
-    "clean": "rm -rf dist/css"
+    "build": "npm run --workspaces --if-present build",
+    "clean": "rm -rf packages/*/dist",
+    "typecheck": "tsc -b",
+    "changeset": "changeset",
+    "version:packages": "changeset version",
+    "release": "changeset publish"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/FAST-Computing/brand.git"
+    "url": "git+https://github.com/FAST-Computing/fast-css.git"
   },
   "keywords": [
-    "bootstrap",
-    "sass",
-    "css",
-    "framework",
-    "branding"
+    "material-ui",
+    "mui",
+    "theme",
+    "design-tokens",
+    "design-system"
   ],
   "author": "FAST-Computing",
   "license": "MIT",
   "devDependencies": {
-    "bootstrap": "^5.3.3",
-    "sass": "^1.70.0"
+    "@changesets/cli": "^2.28.1",
+    "@changesets/changelog-github": "^0.5.0",
+    "@types/node": "^25.2.0",
+    "sass": "^1.70.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.3.0"
   }
 }
