@@ -1,6 +1,6 @@
 {
   "name": "@fast-computing/fast-graphics",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "packages/tokens/dist/index.js",
   "types": "packages/tokens/dist/index.d.ts",
   "publishConfig": {
@@ -55,11 +55,9 @@
   "author": "FAST-Computing",
   "license": "MIT",
   "files": [
-    "packages/*/dist",
-    "packages/*/src",
-    "packages/*/package.json",
-    "packages/*/README.md",
-    "README.md"
+    "packages",
+    "README.md",
+    "tsconfig.base.json"
   ],
   "peerDependencies": {
     "@emotion/react": "^11.13.0",
