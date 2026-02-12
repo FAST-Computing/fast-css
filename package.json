@@ -1,13 +1,18 @@
 {
   "name": "fast-monorepo",
-  "version": "2.0.0",
+  "version": "0.0.3",
   "private": true,
   "description": "FAST-Computing graphics release repo (@fast/* packages)",
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "build": "npm run --workspaces --if-present build",
+    "build": "npm run build:tokens && npm run build:mui-theme && npm run build:ui && npm run build:layouts && npm run build:assets",
+    "build:tokens": "cd packages/tokens && npm run build",
+    "build:mui-theme": "cd packages/mui-theme && npm run build",
+    "build:ui": "cd packages/ui && npm run build",
+    "build:layouts": "cd packages/layouts && npm run build",
+    "build:assets": "cd packages/assets && npm run build",
     "clean": "rm -rf packages/*/dist",
     "typecheck": "tsc -b",
     "changeset": "changeset",
